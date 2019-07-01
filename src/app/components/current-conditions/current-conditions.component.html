@@ -1,0 +1,6 @@
+<h3>Zip codes</h3>
+<ul>
+  <li *ngFor="let zip of (zipCodes$ | async)">
+    <app-current-condition-item [zipCode]="zip" [conditions]="currentConditions$ | async"></app-current-condition-item>
+  </li>
+</ul>

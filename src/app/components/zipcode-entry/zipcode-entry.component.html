@@ -1,0 +1,7 @@
+<div>
+  <label>
+    Zipcode:
+    <input type="text" #zipCode placeholder="Zipcode">
+  </label>
+  <button (click)="addZipcode(zipCode.value); zipCode.value =''">Add</button>
+</div>

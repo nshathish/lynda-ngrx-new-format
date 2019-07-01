@@ -1,0 +1,18 @@
+{{ conditions.size | json }}
+<div *ngIf="conditions.size && conditions.size > 0">
+  <h3>{{getConditions(zipCode)?.name}} ({{ zipCode }})</h3>
+  <h4>Current conditions: {{getConditions(zipCode)?.weather[0].main}}</h4>
+  <h4>Temperatures today:</h4>
+  <p>
+    Current {{ getConditions(zipCode)?.main.temp | number:'.0-0' }}
+    - Max {{ getConditions(zipCode)?.main.temp_max | number:'.0-0' }}
+    - Min {{ getConditions(zipCode)?.main.temp_min | number:'.0-0' }}
+  </p>
+  <p>
+    <a [routerLink]="['/forecast', zipCode]" >Show 5-day forecast for {{ getConditions(zipCode)?.name }}</a>
+  </p>
+</div>
+<div>
+  <span class="close" (click)="removeZip(zipCode)">&times;</span>
+  <img [src]="weatherService.getWeatherIcon(getConditions(zipCode)?.weather[0].id)">
+</div>
