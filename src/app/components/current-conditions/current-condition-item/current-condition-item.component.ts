@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { WeatherService } from '../../../services/weather.service';
 
 @Component({
@@ -11,16 +11,14 @@ export class CurrentConditionItemComponent implements OnInit {
   @Input() zipCode: string;
   @Input() conditions: Map<string, any>;
 
+  @Output() removeZip = new EventEmitter<string>();
+
   constructor(
     public weatherService: WeatherService
   ) { }
 
   getConditions(zip: string) {
     return this.conditions.get(zip);
-  }
-
-  removeZip(zip: string) {
-    // this.store.dispatch(new RemoveZipcode(zip));
   }
 
   ngOnInit() {

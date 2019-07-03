@@ -1,7 +1,11 @@
-<div>
-  <label>
-    Zipcode:
-    <input type="text" #zipCode placeholder="Zipcode">
-  </label>
-  <button (click)="addZipcode(zipCode.value); zipCode.value =''">Add</button>
+<div class="field">
+  <label class="label">Zip code</label>
+  <p class="control">
+    <input class="input" type="text" placeholder="Zipcode" #zipCode>
+  </p>
+</div>
+<div class="field">
+  <div class="control">
+    <button class="button is-link" (click)="addZipcode(zipCode.value); zipCode.value =''">Add</button>
+  </div>
 </div>

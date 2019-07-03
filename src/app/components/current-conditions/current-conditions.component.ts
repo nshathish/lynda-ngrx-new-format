@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 
-import { AppState } from '../../reducers';
+import { AppState, selectCurrentConditionsList, selectZipcodeList } from '../../reducers';
 import { Observable } from 'rxjs';
+import { ZipcodeActions } from '../../actions';
 
 
 @Component({
@@ -18,8 +19,12 @@ export class CurrentConditionsComponent implements OnInit {
   constructor(
     private store: Store<AppState>
   ) {
-    this.zipCodes$ = store.select(s => s.zipCodes.zipCodes);
-    this.currentConditions$ = store.select(s => s.currentConditions);
+    this.zipCodes$ = store.select(selectZipcodeList);
+    this.currentConditions$ = store.select(selectCurrentConditionsList);
+  }
+
+  onRemoveZip(zipCode: string) {
+    this.store.dispatch(ZipcodeActions.removeZipcode({ zipCode }));
   }
 
   ngOnInit() {

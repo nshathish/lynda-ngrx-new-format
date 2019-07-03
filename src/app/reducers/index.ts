@@ -1,5 +1,5 @@
 import {
-  ActionReducerMap,
+  ActionReducerMap, createSelector,
   MetaReducer
 } from '@ngrx/store';
 
@@ -21,3 +21,14 @@ export const reducers: ActionReducerMap<AppState> = {
 
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];
+
+export const selectZipcodeState = (state: AppState) => state.zipCodes;
+export const selectZipcodeList = createSelector(
+  selectZipcodeState,
+  (state: ZipCodeState) => state.zipCodes);
+
+export const selectCurrentConditionState = (state: AppState) => state.currentConditions;
+export const selectCurrentConditionsList = createSelector(
+  selectCurrentConditionState,
+  (state: CurrentConditionState) => state.currentConditions
+);

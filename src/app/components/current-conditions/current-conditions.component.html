@@ -1,6 +1,7 @@
-<h3>Zip codes</h3>
-<ul>
-  <li *ngFor="let zip of (zipCodes$ | async)">
-    <app-current-condition-item [zipCode]="zip" [conditions]="currentConditions$ | async"></app-current-condition-item>
-  </li>
-</ul>
+<div class="notification is-primary" *ngFor="let zip of (zipCodes$ | async)">
+  <app-current-condition-item
+    [zipCode]="zip"
+    [conditions]="currentConditions$ | async"
+    (removeZip)="onRemoveZip($event)">
+  </app-current-condition-item>
+</div>
