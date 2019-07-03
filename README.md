@@ -1,6 +1,6 @@
 # Lynda Ngrx New Format
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.4.
+Lynda.com ngrx course tutorial project converted to use the ngrx 8.x.x version
 
 ## Development server
 
